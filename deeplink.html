@@ -1,0 +1,402 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepLink - 깊이 있는 나를 기록하고 이해하는 AI 노트 플랫폼</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nanum Square', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .bg-deep-purple {
+            background-color: #b32fa3;
+        }
+        .text-deep-purple {
+            color: #d04ebe;
+        }
+        .bg-dark-gray {
+            background-color: #232323;
+        }
+        .border-deep-purple {
+            border-color: #d04ebe;
+        }
+        .nav-link:hover {
+            color: #d04ebe;
+            transition: color 0.3s;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #121212 0%, #232323 100%);
+        }
+        .feature-card {
+            background-color: #232323;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(208, 78, 190, 0.2);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(208, 78, 190, 0.3);
+        }
+        .section-title {
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #d04ebe;
+            box-shadow: 0 0 10px #d04ebe, 0 0 20px #d04ebe;
+        }
+        .comparison-table th {
+            background-color: #232323;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        .step-card {
+            position: relative;
+            border: 1px solid rgba(208, 78, 190, 0.2);
+        }
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #b32fa3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 0 10px #d04ebe;
+        }
+        .emoji {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        .node-icon {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #d04ebe;
+            margin: 0 2px;
+            box-shadow: 0 0 8px #d04ebe;
+        }
+        .neon-text {
+            color: #ffffff;
+            text-shadow: 0 0 5px #d04ebe, 0 0 10px #d04ebe, 0 0 20px #d04ebe;
+        }
+        .neon-border {
+            border: 1px solid rgba(208, 78, 190, 0.5);
+            box-shadow: 0 0 10px rgba(208, 78, 190, 0.5);
+        }
+        .neon-box {
+            box-shadow: 0 0 15px rgba(208, 78, 190, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="fixed w-full z-50 bg-opacity-90 bg-gray-900 shadow-lg">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="mr-2">
+                    <span class="node-icon"></span>
+                    <span class="node-icon"></span>
+                    <span class="node-icon"></span>
+                </div>
+                <a href="#" class="text-xl font-bold neon-text">DeepLink</a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="nav-link">기능</a>
+                <a href="#benefits" class="nav-link">혜택</a>
+                <a href="#compare" class="nav-link">비교</a>
+                <a href="#solution" class="nav-link">해결책</a>
+                <a href="#roadmap" class="nav-link">로드맵</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <header class="hero-gradient min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-full text-center">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6 neon-text">
+                    깊이 있는 나를 기록하고 이해하는 AI 노트 플랫폼
+                </h1>
+                <p class="text-xl mb-8 text-gray-300">"우리는 깊이 있는 자아를 가진 개인이다."</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- 서비스 소개 섹션 -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">깊이 있는 나를 발견하는 여정</h2>
+            <div class="flex flex-col items-center justify-between mb-12">
+                <div class="w-full md:w-3/4">
+                    <h3 class="text-2xl font-bold mb-4 text-center neon-text">DeepLink는 무엇인가요?</h3>
+                    <p class="text-gray-300 mb-6 text-center">DeepLink는 일상의 기록이 단순한 메모가 아닌, AI를 통해 자신을 깊이 이해하는 도구로 변환시키는 플랫폼입니다. 하루 한 번 작성하는 짧은 글을 통해, 시간이 지남에 따라 변화하는 나의 성향과 관심사, 감정 패턴을 분석하고 시각화합니다.</p>
+                    <p class="text-gray-300 text-center">MBTI처럼 고정된 유형이 아닌, 나의 글을 기반으로 한 <span class="font-bold neon-text">진화하는 자아 분석</span>을 경험해보세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 주요 기능 섹션 -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">주요 기능</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 기능 1 -->
+                <div class="feature-card rounded-lg p-6 text-center neon-box">
+                    <div class="bg-deep-purple bg-opacity-20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <span class="emoji">📝</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 neon-text">데일리 노트 작성</h3>
+                    <p class="text-gray-300">하루 한 번 글쓰기를 통해 자신을 표현하세요. 빈칸이나 질문 제시 방식 중 선택 가능하며, "오늘의 질문"은 모든 유저와 공유할 수 있습니다.</p>
+                </div>
+                
+                <!-- 기능 2 -->
+                <div class="feature-card rounded-lg p-6 text-center neon-box">
+                    <div class="bg-deep-purple bg-opacity-20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <span class="emoji">🧠</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 neon-text">AI 기반 분석 기능</h3>
+                    <p class="text-gray-300">OCEAN 성격 분석, 가치지향 유형 등 글 기반 성향 분석이 가능합니다. 일정 메모 수(30개) 이상 누적 후 분석이 활성화됩니다.</p>
+                </div>
+                
+                <!-- 기능 3 -->
+                <div class="feature-card rounded-lg p-6 text-center neon-box">
+                    <div class="bg-deep-purple bg-opacity-20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <span class="emoji">📊</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 neon-text">시각화 및 정체성 맵</h3>
+                    <p class="text-gray-300">시간 흐름에 따른 성향 변화를 추적하고, '나'에 대한 아이덴티티 맵을 제공합니다. 성향 트래킹을 통해 자신의 변화를 한눈에 확인하세요.</p>
+                </div>
+                
+                <!-- 기능 4 -->
+                <div class="feature-card rounded-lg p-6 text-center neon-box">
+                    <div class="bg-deep-purple bg-opacity-20 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <span class="emoji">🌱</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 neon-text">성장 유도</h3>
+                    <p class="text-gray-300">분석 결과를 기반으로 확장 질문과 자기 이해를 돕는 피드백을 제공합니다. AI의 도움으로 더 깊은 자아 탐색이 가능합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 분석 흐름 섹션 -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">AI 분석 흐름</h2>
+            <div class="flex flex-col items-center mb-12">
+                <div class="w-full md:w-3/4 bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <div class="flex flex-col md:flex-row items-start md:space-x-8">
+                        <div class="md:w-1/3 mb-6 md:mb-0">
+                            <div class="step-card bg-gray-800 rounded-lg p-4 mb-4 neon-box">
+                                <div class="step-number">1</div>
+                                <h4 class="font-bold mb-2">초기 메모 30개 이상 누적</h4>
+                                <p class="text-gray-400 text-sm">AI 메모 분석을 위한 기본 데이터 수집</p>
+                            </div>
+                            <div class="step-card bg-gray-800 rounded-lg p-4 mb-4 neon-box">
+                                <div class="step-number">2</div>
+                                <h4 class="font-bold mb-2">사용자 요청에 따라 분석</h4>
+                                <p class="text-gray-400 text-sm">분석 버튼 클릭 후 결과 생성</p>
+                            </div>
+                            <div class="step-card bg-gray-800 rounded-lg p-4 neon-box">
+                                <div class="step-number">3</div>
+                                <h4 class="font-bold mb-2">분석 결과 시각화</h4>
+                                <p class="text-gray-400 text-sm">3가지 주요 경로로 결과 제공</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-bold mb-6 neon-text">분석 결과 3가지 주요 경로</h3>
+                            <div class="bg-gray-800 rounded-lg p-6 mb-4 neon-border">
+                                <h4 class="font-bold mb-2 neon-text">🔎 관심 주제 파악</h4>
+                                <p class="text-gray-300">분석된 주제에 대한 추천 글쓰기로 연결됩니다. 자신이 무의식적으로 관심을 가지는 주제들을 발견하세요.</p>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-6 mb-4 neon-border">
+                                <h4 class="font-bold mb-2 neon-text">🏷️ 사용자 정체성 태깅</h4>
+                                <p class="text-gray-300">자아성향 유도 태그와 글쓰기가 자동으로 등록됩니다. 당신만의 고유한 정체성을 키워드로 발견하세요.</p>
+                            </div>
+                            <div class="bg-gray-800 rounded-lg p-6 neon-border">
+                                <h4 class="font-bold mb-2 neon-text">📈 감정 & 상황 분석</h4>
+                                <p class="text-gray-300">감정 그래프 시각화와 일상 속 패턴 분석을 통해 자신의 감정 흐름을 이해하고 진화 방향을 모색합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 사용자 혜택 섹션 -->
+    <section id="benefits" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">사용자 혜택</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">진짜 나에 대한 분석</h3>
+                    <p class="text-gray-300 mb-6">MBTI처럼 고정된 유형이 아닌, 축적된 글을 통한 <span class="font-bold neon-text">진화적 분석</span>을 제공합니다. 매일의 기록이 쌓이면서 더욱 정확하고 심층적인 자아 분석이 이루어집니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">변화 트래킹</h3>
+                    <p class="text-gray-300 mb-6">일간 기록이 쌓이며 시간 흐름에 따른 나의 변화를 확인할 수 있습니다. 과거의 나와 현재의 나를 비교하며 성장의 여정을 추적해보세요.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">글쓰기 추천</h3>
+                    <p class="text-gray-300 mb-6">내 성향과 관심에 맞춘 주제, 질문 추천 기능을 제공합니다. AI가 당신의 글쓰기 여정에 영감을 주는 질문들을 제안합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">가벼운 접근, 깊은 분석</h3>
+                    <p class="text-gray-300 mb-6">일기처럼 쓰기 쉬우나, AI 분석은 심도 있게 제공됩니다. 간단한 글쓰기만으로 자신의 내면을 심층적으로 탐색해보세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 비교 섹션 -->
+    <section id="compare" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">서비스 레퍼런스 비교</h2>
+            <div class="overflow-x-auto">
+                <table class="comparison-table w-full rounded-lg overflow-hidden shadow-lg neon-border">
+                    <thead>
+                        <tr class="text-left">
+                            <th class="p-4 border-b border-gray-700">서비스명</th>
+                            <th class="p-4 border-b border-gray-700">주요 기능 요약</th>
+                            <th class="p-4 border-b border-gray-700">Deeplink와의 차별점</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">Simplenote</td>
+                            <td class="p-4 border-b border-gray-700">빠른 메모, 마크다운 지원</td>
+                            <td class="p-4 border-b border-gray-700">AI 분석 없음</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">DigitalPage</td>
+                            <td class="p-4 border-b border-gray-700">기록-갤러리-캘린더 연동, 자동 분류</td>
+                            <td class="p-4 border-b border-gray-700">통합형 기록 도구이지만 성향 분석은 미흡</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">Mem</td>
+                            <td class="p-4 border-b border-gray-700">AI 기반 노트 자동 정리, 관련 노트 추천</td>
+                            <td class="p-4 border-b border-gray-700">생산성 중심, 성향 추적 기능은 약함</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">Mynd</td>
+                            <td class="p-4 border-b border-gray-700">감정/생각 패턴 추적, 일기 분석, 자가치료 유도</td>
+                            <td class="p-4 border-b border-gray-700 neon-text font-bold">가장 유사, 단 Deeplink는 더 시각화 및 확장성에 집중</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">씀</td>
+                            <td class="p-4 border-b border-gray-700">매일 글감 제시, 공유 기반 글쓰기</td>
+                            <td class="p-4 border-b border-gray-700">커뮤니티 중심, AI 분석 기능 없음</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">Life Note</td>
+                            <td class="p-4">철학자 AI 멘토 기반 일기 & 조언</td>
+                            <td class="p-4">AI 캐릭터와의 대화 중점, 분석은 간접적</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 사회적 문제 해결 섹션 -->
+    <section id="solution" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">사회적 문제 해결</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h3 class="text-xl font-bold mb-6 neon-text">기존 SNS의 문제</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-deep-purple bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 neon-box">
+                                <span class="text-deep-purple">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">외형적 모습 중심 노출</h4>
+                                <p class="text-gray-300">타인과의 비교로 인한 <span class="font-bold neon-text">자존감 저하</span> 현상이 발생합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-deep-purple bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 neon-box">
+                                <span class="text-deep-purple">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">숏폼 콘텐츠 과잉 소비</h4>
+                                <p class="text-gray-300">짧은 콘텐츠 연속 소비로 인한 <span class="font-bold neon-text">집중력 약화</span>가 우려됩니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-deep-purple bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 neon-box">
+                                <span class="text-deep-purple">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Z세대 조사 결과</h4>
+                                <p class="text-gray-300">미국 Z세대 조사: 49% SNS 사용 중 불쾌감, 36% FOMO(소외감) 경험을 보고했습니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-deep-purple bg-opacity-20 w-8 h-8 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0 neon-box">
+                                <span class="text-deep-purple">4</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">자기성찰형 콘텐츠 부족</h4>
+                                <p class="text-gray-300">내면의 성장을 돕는 콘텐츠와 플랫폼이 부족한 실정입니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-10 border-t md:border-t-0 md:border-l border-gray-700 pt-8 md:pt-0 md:pl-12">
+                    <h3 class="text-xl font-bold mb-6 neon-text">DeepLink의 대안</h3>
+                    <div class="bg-dark-gray rounded-lg p-6 mb-6 neon-border">
+                        <h4 class="font-bold mb-2 neon-text">내면 탐색 중심</h4>
+                        <p class="text-gray-300">피상적 연결이 아닌 <span class="font-bold neon-text">내면 탐색 중심</span>의 플랫폼을 제공합니다. 자신의 생각과 감정에 집중하는 시간을 통해 더 깊은 자아 이해를 도모합니다.</p>
+                    </div>
+                    <div class="bg-dark-gray rounded-lg p-6 neon-border">
+                        <h4 class="font-bold mb-2 neon-text">기록 기반 자아 이해</h4>
+                        <p class="text-gray-300">SNS 피로감에서 벗어나 <span class="font-bold neon-text">기록 기반 자아 이해</span>로 전환을 유도합니다. 타인의 시선이 아닌, 나 자신에게 집중하는 경험을 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 향후 고려 사항 섹션 -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">자주 묻는 질문</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-dark-gray rounded-lg p-6 neon-border">
+                    <h3 class="font-bold mb-2 neon-text">메모 분석은 언제 가능한가요?</h3>
+                    <p class="text-gray-300">메모 30개 이상 누적 시 AI 분석 기능이 활성화됩니다. 약 한 달간의 꾸준한 기록이 의미 있는 분석의 시작점입니다.</p>
+                </div>
+                <div class="bg-dark-gray rounded-lg p-6 neon-border">
+                    <h3 class="font-bold mb-2 neon-text">30개 이후 어떤 메모가 분석되나요?</h3>
+                    <p class="text-gray-300">현재 전체 메모를 대상으로 분석하며, 향후 특정 기간이나 주제별 분석 기능을 추가할 예정입니다.</p>
+                </div>
+                <div class="bg-dark-gray rounded-lg p-6 neon-border">
+                    <h3 class="font-bold mb-2 neon-text">분석은 자동으로 이루어지나요?</h3>
+                    <p class="text-gray-300">사용자가 분석 버튼을 클릭했을 때 이루어집니다. 원하는 시점에 자신의 변화를 확인할 수 있습니다.</p>
+                </div>
+                <div class="bg-dark-gray rounded-lg p-6 n
