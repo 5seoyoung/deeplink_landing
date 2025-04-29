@@ -103,6 +103,76 @@
         .neon-box {
             box-shadow: 0 0 15px rgba(208, 78, 190, 0.3);
         }
+        .timeline-container {
+            position: relative;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #d04ebe;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: 0 0 10px #d04ebe;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-badge {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #b32fa3;
+            left: 50%;
+            margin-left: -10px;
+            z-index: 10;
+            top: 20px;
+            box-shadow: 0 0 15px #d04ebe;
+        }
+        .timeline-panel {
+            position: relative;
+            width: 46%;
+        }
+        .timeline-left {
+            float: left;
+            clear: left;
+        }
+        .timeline-right {
+            float: right;
+            clear: right;
+        }
+        .roadmap-step {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .roadmap-step:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #d04ebe;
+            box-shadow: 0 0 10px #d04ebe;
+        }
+        .roadmap-step:after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: rgba(208, 78, 190, 0.5);
+        }
+        .roadmap-step:last-child:after {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -123,6 +193,7 @@
                 <a href="#compare" class="nav-link">비교</a>
                 <a href="#solution" class="nav-link">해결책</a>
                 <a href="#roadmap" class="nav-link">로드맵</a>
+                <a href="#business-model" class="nav-link">비즈니스모델</a>
             </div>
         </div>
     </nav>
@@ -382,7 +453,7 @@
         </div>
     </section>
 
-    <!-- 향후 고려 사항 섹션 -->
+    <!-- 자주 묻는 질문 섹션 -->
     <section class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">자주 묻는 질문</h2>
@@ -399,4 +470,226 @@
                     <h3 class="font-bold mb-2 neon-text">분석은 자동으로 이루어지나요?</h3>
                     <p class="text-gray-300">사용자가 분석 버튼을 클릭했을 때 이루어집니다. 원하는 시점에 자신의 변화를 확인할 수 있습니다.</p>
                 </div>
-                <div class="bg-dark-gray rounded-lg p-6 n
+                <div class="bg-dark-gray rounded-lg p-6 neon-border">
+                    <h3 class="font-bold mb-2 neon-text">개인 정보는 안전한가요?</h3>
+                    <p class="text-gray-300">사용자의 모든 기록은 암호화되어 저장되며, 분석 결과는 사용자 본인만 볼 수 있습니다. 개인정보 보호를 최우선으로 합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 창업 아이템 실현 구체적 방안 섹션 -->
+    <section id="implementation" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">창업 아이템 실현 구체적 방안</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">UX/UI 설계 및 사용자 플로우 구축</h3>
+                    <p class="text-gray-300 mb-6">사용자가 자연스럽게 '기록 → 분석 → 성찰 → 성장 제안'이라는 플로우를 따라갈 수 있도록, 직관적이고 감성적인 UX 설계를 최우선 과제로 진행합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">핵심 기능 정의 및 개발</h3>
+                    <p class="text-gray-300 mb-6">초기에 반드시 구현해야 할 기능으로는 데일리 일기 작성 기능, 감정 및 가치 기반 분석 기능, OCEAN 성향 분석 기능, 감정/성향 변화 시각화 기능이 있으며, 이를 중심으로 MVP를 빠르게 완성합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">AI 분석 엔진 개발 및 연동</h3>
+                    <p class="text-gray-300 mb-6">KoBERT 및 GPT 기반 자연어 처리 모델을 Fine-tuning하여 감정 및 가치 분석을 정확하게 수행하고, 사용자 기록 데이터에 기반해 개인화된 피드백을 즉각 제공하는 구조를 구축합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">데이터 저장 및 트래킹 시스템 구축</h3>
+                    <p class="text-gray-300 mb-6">PostgreSQL 기반으로 사용자별 기록, 감정, 가치 분석 결과를 효율적으로 저장하고, 시계열 데이터로 축적된 개인의 정체성 흐름을 분석할 수 있도록 설계합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">베타 테스트 및 기능 고도화</h3>
+                    <p class="text-gray-300 mb-6">실제 사용자를 모집하여 초기 버전을 테스트하고, UX 문제점, 분석 정확도, 피드백 만족도 등을 정밀하게 점검하여 개선합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">상용화 및 유료화 모델 구축</h3>
+                    <p class="text-gray-300 mb-6">정식 버전에서는 프리미엄 리포트, 추가 확장 질문, 개인화 성장 다이어리 등 부가 기능을 유료로 제공하며, 초기 시장 진입 이후 B2B 멘탈케어 프로그램 연계도 추진합니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">런칭 및 시장 확장</h3>
+                    <p class="text-gray-300 mb-6">정식 런칭과 함께 SNS, 인플루언서 협업 등을 통한 브랜드 인지도 확보 전략을 병행하고, 초기 사용자 행동 데이터를 분석하여 기능 최적화 및 마케팅 전략을 지속 개선할 계획입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 로드맵 섹션 -->
+    <section id="roadmap" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">개발 로드맵</h2>
+            <div class="overflow-x-auto">
+                <table class="comparison-table w-full rounded-lg overflow-hidden shadow-lg neon-border">
+                    <thead>
+                        <tr class="text-left">
+                            <th class="p-4 border-b border-gray-700">단계</th>
+                            <th class="p-4 border-b border-gray-700">기간</th>
+                            <th class="p-4 border-b border-gray-700">주요 목표</th>
+                            <th class="p-4 border-b border-gray-700">핵심 작업 항목</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">1단계. 기획 및 설계</td>
+                            <td class="p-4 border-b border-gray-700">2025.05 (1개월)</td>
+                            <td class="p-4 border-b border-gray-700">서비스 기획 및 설계 완료</td>
+                            <td class="p-4 border-b border-gray-700">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>UX/UI 설계 및 사용자 플로우 작성</li>
+                                    <li>핵심 기능 정의 (일기 작성, 감정 분석, OCEAN 분석, 시각화 등)</li>
+                                    <li>질문 DB 설계 및 API 기획</li>
+                                    <li>데이터 수집 및 분석 파이프라인 설계</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">2단계. MVP 개발</td>
+                            <td class="p-4 border-b border-gray-700">2025.06 ~ 07 (2개월)</td>
+                            <td class="p-4 border-b border-gray-700">기본 기능 개발 및 내부 테스트</td>
+                            <td class="p-4 border-b border-gray-700">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>프론트엔드 구현 (React 기반 일기 작성/감정 선택 UI)</li>
+                                    <li>백엔드 API 및 DB 구축 (FastAPI + PostgreSQL)</li>
+                                    <li>감정 분석 모델 연동 (KoBERT, GPT 활용)</li>
+                                    <li>OCEAN 추론 알고리즘 프로토타입 개발</li>
+                                    <li>사용자별 데이터 저장 및 추적 시스템 구성</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">3단계. 사용자 피드백 반영 및 고도화</td>
+                            <td class="p-4 border-b border-gray-700">2025.08 ~ 09 (2개월)</td>
+                            <td class="p-4 border-b border-gray-700">베타 서비스 런칭 및 기능 개선</td>
+                            <td class="p-4 border-b border-gray-700">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>베타 사용자 100명 모집 (Z세대 중심)</li>
+                                    <li>피드백 수집 및 UX 개선</li>
+                                    <li>감정 흐름 시각화 기능 추가 (Chart.js 기반)</li>
+                                    <li>질문 추천 엔진 1차 탑재 (GPT Prompting or Rule-based 추천)</li>
+                                    <li>일일 성장 리포트 자동 생성 기능 탑재</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 border-b border-gray-700 font-bold">4단계. 정식 서비스 개발 및 유료화 준비</td>
+                            <td class="p-4 border-b border-gray-700">2025.10 ~ 11 (2개월)</td>
+                            <td class="p-4 border-b border-gray-700">상용화 버전 개발</td>
+                            <td class="p-4 border-b border-gray-700">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>프론트 디자인 리뉴얼 (감성적 UI 강화)</li>
+                                    <li>사용자별 대시보드 구성 (정체성 지도, 성향 변화 시각화)</li>
+                                    <li>유료 모델 기획 (프리미엄 분석, 맞춤 리포트, 기록 PDF 저장 등)</li>
+                                    <li>서버 안정화 및 AWS 클라우드 환경 전환</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold">5단계. 정식 런칭 및 마케팅 전개</td>
+                            <td class="p-4">2025.12 ~ 2026.01 (2개월)</td>
+                            <td class="p-4">정식 런칭 및 사용자 확보</td>
+                            <td class="p-4">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>iOS/Android 웹앱 배포</li>
+                                    <li>런칭 캠페인 진행 (SNS/인플루언서 협업 중심)</li>
+                                    <li>리텐션 기반 사용자 추천 기능 강화</li>
+                                    <li>사용자 행동 분석 기반 기능 개선 계획 수립</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 비즈니스 모델 섹션 -->
+    <section id="business-model" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 section-title neon-text">비즈니스모델</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">1. 프리미엄 구독 모델</h3>
+                    <p class="text-gray-300 mb-6">딥링크는 기본적인 일기 작성, 감정 선택, 즉각적 AI 피드백 제공 기능을 누구나 무료로 이용할 수 있도록 제공할 예정입니다. 이를 통해 진입 장벽을 낮추고 폭넓은 사용자층을 확보합니다.</p>
+                    <p class="text-gray-300 mb-6">다만, 보다 심화된 서비스는 월 정기 구독 형태로 제공합니다:</p>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-300 mb-6">
+                        <li>고급 감정/가치 분석 리포트 제공</li>
+                        <li>월간/분기별 성향 변화 트래킹 리포트</li>
+                        <li>개인 맞춤형 성장 방향성 제안</li>
+                        <li>추가 확장 질문 기능</li>
+                    </ul>
+                    <p class="text-gray-300">사용자는 구독을 통해, "단순 기록"을 넘어 "나의 성장 흐름을 정밀하게 분석하고 설계하는" 프리미엄 경험을 누릴 수 있습니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">2. 분석 공유 기능 유료화</h3>
+                    <p class="text-gray-300 mb-6">딥링크는 사용자가 자신의 성장 흐름과 감정/성향 분석 결과를 친구나 지인에게 공유할 수 있는 기능을 제공할 예정입니다. 기본적인 요약 공유는 무료로 지원하되, 분석 결과를 고급 시각화 카드 형태로 꾸미거나, 스토리형 리포트로 변환하거나, 개인화된 추천 문구를 추가하는 기능은 일부 유료화하여 제공합니다.</p>
+                    <p class="text-gray-300">이 기능을 통해 사용자는 자신의 성장 과정을 소셜 네트워크를 통해 자연스럽게 확장하고, 딥링크는 바이럴 효과(입소문)를 통한 신규 사용자 유입을 기대할 수 있습니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">3. 성장 플래너 상품</h3>
+                    <p class="text-gray-300 mb-6">딥링크는 단순히 과거를 기록하고 해석하는 데 그치지 않고, "앞으로의 나"를 설계할 수 있도록 돕는 성장 플래너 기능을 부가 서비스 형태로 제공할 예정입니다.</p>
+                    <p class="text-gray-300 mb-6">구체적으로, 사용자 개개인의 감정/가치 성향을 기반으로 맞춤형 다짐 관리, 목표 설정, 성찰 질문 리스트를 구성하여 하나의 "개인 성장 플래너"를 완성할 수 있게 지원합니다.</p>
+                    <p class="text-gray-300">이 성장 플래너 기능은 추가 유료 상품(인앱 결제 형태)으로 제공되며, 사용자가 자기 목표를 스스로 설계하고 성취해나가는 동기를 강화하는 데 기여할 것입니다.</p>
+                </div>
+                
+                <div class="bg-dark-gray rounded-lg p-8 shadow-lg neon-border">
+                    <h3 class="text-xl font-bold mb-4 neon-text">4. 기업 고객 대상 B2B 제휴</h3>
+                    <p class="text-gray-300 mb-6">딥링크는 장기적으로, 멘탈케어 프로그램, 웰니스 프로그램, 임직원 성장지원 프로그램 등을 운영하는 기업들을 대상으로 맞춤형 솔루션을 제공하는 B2B 제휴 모델을 추진할 계획입니다.</p>
+                    <p class="text-gray-300 mb-6">기업 고객에게는, 직원들의 감정 트렌드 및 웰빙 상태를 익명 기반으로 집계하여 제공하고, 스트레스 관리, 성장 가이드, 팀 기반 목표 성찰 프로그램 등을 커스터마이징하여 제공할 수 있습니다.</p>
+                    <p class="text-gray-300">이를 통해 딥링크는 개인 소비자 시장(B2C)뿐 아니라, 기업 멘탈케어 시장(B2B)에서도 안정적인 매출원을 확보할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 섹션 -->
+    <footer class="py-10 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="mr-2">
+                            <span class="node-icon"></span>
+                            <span class="node-icon"></span>
+                            <span class="node-icon"></span>
+                        </div>
+                        <span class="text-xl font-bold neon-text">DeepLink</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">깊이 있는 나를 기록하고 이해하는 AI 노트 플랫폼</p>
+                </div>
+                
+                <div>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="text-gray-400 hover:text-deep-purple transition duration-300">이용약관</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-deep-purple transition duration-300">개인정보처리방침</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-deep-purple transition duration-300">문의하기</a></li>
+                    </ul>
+                    <p class="text-gray-500 text-sm mt-4 text-center">© 2025 DeepLink. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 스크롤 시 네비게이션 바 투명도 조절
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-opacity-95');
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('bg-opacity-95');
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
